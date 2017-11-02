@@ -1,0 +1,12 @@
+button#dropdownMenuButton {
+    margin-bottom: 11px;
+    display: inline-block;
+}
+
+input.status {
+    display: inline-block;
+}
+
+.list-group {
+    margin-top: 14px;
+}
