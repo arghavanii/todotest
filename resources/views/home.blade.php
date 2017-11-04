@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  
 <div class="container">
+ @include('flash::message')
     <div class="row">
         
          <div class="col-4">
