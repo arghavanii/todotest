@@ -3,6 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
+use App\Mail\UserRegister;
+
+use Illuminate\Support\Facades\Mail;
+
 
 class usercontroller extends Controller
 {
@@ -81,4 +91,21 @@ class usercontroller extends Controller
     {
         //
     }
+
+    public function verify ($token) {
+        
+       // dd($token);
+        
+        
+        $user = DB::table('users')->select('code_verify')->where('code_verify', $token)->first();
+        
+        //dd($user);
+        if($user) {
+        
+            DB::table('users')
+            ->where('code_verify', $token)
+            ->update(['reg_status' => 'activated']);
+        }
+        
+            }
 }
