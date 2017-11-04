@@ -95,20 +95,5 @@ class RegisterController extends Controller
         
     }
 
-    public function verify ($token) {
-
-dd($token);
-
-
-$user = DB::table('users')->select('code_verify')->where('code_verify', $token)->get();
-
-dd($user);
-if($user) {
-
-    DB::table('users')
-    ->where('code_verify', $token)
-    ->update(['reg_status' => 'activated']);
-}
-
-    }
+  
 }
